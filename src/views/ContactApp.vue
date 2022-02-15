@@ -1,14 +1,17 @@
 <template>
-  <section class="contact-app">
-    <h3>Contact app</h3>
-    <RouterLink to="/contact/edit">Add a new contact</RouterLink>
+  <section class="contact-app main-container full">
     <ContactFilter @set-filter="setFilter" />
-    <ContactList :contacts="contactsToShow" @remove="removeContact" />
+    <div class="full">
+      <RouterLink to="/contact/edit" class="clean-link">
+        <!-- <div class="img-container"><img src="@/assets/imgs/plus.svg" /></div> -->
+        <div class="plus flex justify-center align-center">+</div>
+      </RouterLink>
+      <ContactList :contacts="contactsToShow" @remove="removeContact" />
+    </div>
   </section>
 </template>
 
 <script>
-import contactService from "@/services/contact.service.js";
 import ContactFilter from "@/components/ContactFilter.vue";
 import ContactList from "@/components/ContactList.vue";
 

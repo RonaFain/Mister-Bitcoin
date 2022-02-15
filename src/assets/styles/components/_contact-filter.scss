@@ -1,0 +1,24 @@
+.contact-filter {
+  padding: 20px;
+  background-color: $clr3;
+
+  input {
+    background-color: inherit;
+    font-size: rem(18px);
+    color: $clr6;
+    border: none;
+    border-bottom: 1px solid #929292;
+    font-family: inherit;
+    width: 30%;
+    margin: 0 auto;
+
+    &::-moz-placeholder {
+      font-family: inherit;
+      color: gold;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

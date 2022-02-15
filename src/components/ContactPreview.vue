@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-preview flex">
+  <section class="contact-preview flex justify-center">
     <div class="contact-img"><img :src="contact.imgUrl" /></div>
     <div class="contact-info flex column justify-center">
       <p>{{ contact.name }}</p>

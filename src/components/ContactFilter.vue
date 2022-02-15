@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-filter flex justify-center">
+  <section class="contact-filter flex justify-center main-container full">
     <input type="text" placeholder="Search name..." v-model="filterBy.name" @input="setFilter" />
   </section>
 </template>

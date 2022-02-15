@@ -4,6 +4,7 @@ import ContactApp from '@/views/ContactApp.vue'
 import ContactDetails from '@/views/ContactDetails.vue'
 import ContactEdit from '@/views/ContactEdit.vue'
 import StatisticView from '@/views/StatisticView.vue'
+import SignupView from '@/views/SignupView.vue'
 
 
 const router = createRouter({
@@ -12,8 +13,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: HomeView
+    },
+    {
+      path: '/signup',
+      name: 'Signup',
+      component: SignupView
     },
     {
       path: '/contact',

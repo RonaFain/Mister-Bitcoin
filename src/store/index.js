@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import contactModule from '@/store/modules/contact.module.js'
+import userModule from '@/store/modules/user.module.js'
 
 // Create a new store instance.
 const store = createStore({
@@ -9,6 +10,7 @@ const store = createStore({
   mutations: {},
   modules: {
     contactModule,
+    userModule
   },
 })
 

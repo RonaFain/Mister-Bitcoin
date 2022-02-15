@@ -35,7 +35,10 @@ function remove(id) {
 
 function save(contact) {
   if (contact._id) return DbService.put(KEY, contact)
-  else return DbService.post(KEY, contact)
+  else {
+    contact.imgUrl = `https://robohash.org/${contact.name}`
+    return DbService.post(KEY, contact)
+  }
 }
 
 function getEmptyContact() {

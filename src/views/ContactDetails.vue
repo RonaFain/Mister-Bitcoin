@@ -1,30 +1,66 @@
 <template>
-    <section class="contact-details" v-if="contact">
-        <h3>Contact Details</h3>
-        <div class="contact-img"><img :src="contact.imgUrl" /></div>
-        <p>Name: {{contact.name}}</p>
-        <p>Email: {{contact.email}}</p>
-        <p>Phone: {{contact.phone}}</p>
-        <RouterLink to="/contact">Go Back</RouterLink>
-        <RouterLink :to="`/contact/edit/${contact._id}`">Edit</RouterLink>
-    </section>
+  <section v-if="contact" class="contact-details flex column justify-center align-center">
+    <div class="contact-actions flex">
+      <RouterLink to="/contact" class="clean-link">Back</RouterLink>
+      <RouterLink :to="`/contact/edit/${contact._id}`" class="clean-link"
+        >Edit</RouterLink
+      >
+    </div>
+    <div class="contact-img"><img :src="contact.imgUrl" /></div>
+    <p>{{ contact.name }}</p>
+    <p>{{ contact.phone }}</p>
+    <p>{{ contact.email }}</p>
+    <TransferFund :contact="contact" @transfer-coins="transferCoins" />
+    <MoveList :title="getTitle" :moves="getMoves" :fromHomeView="false" />
+  </section>
 </template>
 
 <script>
-import contactService from '@/services/contact.service.js';
+import contactService from "@/services/contact.service.js";
+import TransferFund from "@/components/TransferFund.vue";
+import MoveList from "@/components/MoveList.vue";
+
 export default {
-    data() {
-        return {
-            contact: null
-        }
+  components: {
+    TransferFund,
+    MoveList,
+  },
+  data() {
+    return {
+      contact: null,
+    };
+  },
+  async created() {
+    const { id } = this.$route.params;
+    this.contact = await contactService.get(id);
+  },
+  methods: {
+    async transferCoins(amount) {
+      try {
+        await this.$store.dispatch({
+          type: "addMove",
+          contact: this.contact,
+          amount,
+        });
+      } catch (err) {
+        console.log(err);
+      }
     },
-    async created() {
-        const { id } = this.$route.params
-        this.contact = await contactService.get(id)
+  },
+  computed: {
+    user() {
+      return this.$store.getters.user
+    },
+    getMoves() {
+      return this.user.moves.filter(move => move.to === this.contact.name)
+    },
+    getTitle() {
+      const moves = this.getMoves
+      return moves.length ? 'Yours moves:' : ''
     }
-}
+  },
+};
 </script>
 
 <style>
-
 </style>

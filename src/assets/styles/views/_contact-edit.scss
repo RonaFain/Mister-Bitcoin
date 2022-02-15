@@ -1,0 +1,31 @@
+.contact-edit {
+  margin: 10px auto;
+  width: 50%;
+
+  h2 {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  input {
+    background-color: $clr3;
+    color: $clr6;
+    font-family: inherit;
+    padding: 20px;
+    margin-bottom: 10px;
+    width: 70%;
+    border: none;
+    border-radius: 12px;
+  }
+
+  button {
+    background-color: $clr1;
+    padding: 10px 25px;
+    font-family: inherit;
+    font-size: rem(17px);
+    color: $clr6;
+    border: none;
+    border-radius: 12px;
+    margin-top: 20px;
+  }
+}

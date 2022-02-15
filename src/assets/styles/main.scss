@@ -9,5 +9,19 @@
 @import "basics/layout.scss";
 @import "basics/base.scss";
 
+// Views
+@import "views/home-view.scss";
+@import "views/contact-app.scss";
+@import "views/contact-details.scss";
+@import "views/contact-edit.scss";
+@import "views/signup-view.scss";
+
 // Components
+@import "components/app-header.scss";
+@import "components/contact-list.scss";
 @import "components/contact-preview.scss";
+@import "components/contact-filter.scss";
+@import "components/move-list.scss";
+@import "components/move-preview.scss";
+@import "components/transfer-fund.scss";
+@import "components/user-msg.scss";

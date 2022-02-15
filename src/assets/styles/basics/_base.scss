@@ -12,12 +12,15 @@
 }
 
 html {
-//   font-family: montserrat, sans-serif;
+  font-family: lato, sans-serif;
+  background-image: url('@/assets/imgs/background.jpg');
 }
 
 body {
   margin: 0;
   padding: 0;
+  // background-color: $clr3;
+  color: $clr6;
 }
 
 img {

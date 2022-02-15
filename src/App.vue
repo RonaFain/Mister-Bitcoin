@@ -1,18 +1,23 @@
 <template>
-  <div class="app">
+  <div class="app main-container">
     <AppHeader />
     <RouterView />
+    <UserMsg />
   </div>
 </template>
 
 <script>
   import AppHeader from '@/components/AppHeader.vue'
+  import UserMsg from '@/components/UserMsg.vue'
+
   export default {
     components: {
-      AppHeader
+      AppHeader,
+      UserMsg
     },
     async created() {
       await this.$store.dispatch({ type: 'loadContacts' })
+      await this.$store.dispatch({ type: 'loadUser' })
     }
   }
 </script>

@@ -4,7 +4,7 @@
     <form v-if="contactToEdit" @submit.prevent="save" class="flex column align-center" >
       <input v-model="contactToEdit.name" type="text" placeholder="Name" />
       <input v-model="contactToEdit.email" type="text" placeholder="Email" />
-      <input v-model="contactToEdit.phone" type="text" placeholder="phone" />
+      <input v-model="contactToEdit.phone" type="text" placeholder="+1 (111) 111-1111" />
       <button>Save</button>
     </form>
   </section>
@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     async save() {
-      // await contactService.save(this.contactToEdit);
       await this.$store.dispatch({ type: 'saveContact', contact: this.contactToEdit })
       this.$router.push("/contact");
     },

@@ -1,9 +1,10 @@
 <template>
-  <section class="app-header">
+  <section class="app-header full flex space-between">
+    <RouterLink to="/" class="logo clean-link">Mister Bitcoin</RouterLink>
     <nav>
-      <RouterLink to="/">Home</RouterLink>|
-      <RouterLink to="/contact">Contact</RouterLink>|
-      <RouterLink to="/statistic">Statistic</RouterLink>
+      <RouterLink to="/" class="clean-link">Home</RouterLink>
+      <RouterLink to="/contact" class="clean-link">Contact</RouterLink>
+      <RouterLink to="/statistic" class="clean-link">Statistic</RouterLink>
     </nav>
   </section>
 </template>

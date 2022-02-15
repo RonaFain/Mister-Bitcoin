@@ -1,0 +1,16 @@
+.home {
+  background-color: $clr2;
+  border-radius: 40px;
+  margin: 50px auto;
+  height: 150px;
+  width: 600px;
+
+  .home-container {
+    line-height: 2;
+    padding: 10px 20px;
+
+    span {
+      color: $clr1;
+    }
+  }
+}
