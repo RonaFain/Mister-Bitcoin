@@ -56,7 +56,7 @@ export default {
     },
     getTitle() {
       const moves = this.getMoves
-      return moves.length ? 'Yours moves:' : ''
+      return moves.length ? 'Your moves:' : ''
     }
   },
 };

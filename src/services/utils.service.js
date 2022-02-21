@@ -5,6 +5,7 @@ export const utils = {
   loadFromStorage,
   getRandomInt,
   getRandomId,
+  getAvgValues
 }
 
 function storeToStorage(key, value) {
@@ -27,4 +28,23 @@ function getRandomInt(num1, num2) {
   var max = num1 >= num2 ? num1 + 1 : num2 + 1
   var min = num1 <= num2 ? num1 : num2
   return Math.floor(Math.random() * (max - min)) + min
+}
+
+function getAvgValues(arr) {
+  arr.splice(150, 1)
+  let arrLength = arr.length / 5
+  let newArr = []
+  let idx = 0
+  for (let j = 0; j < 5; j++) {
+    var avg = 0
+    for (let i = idx; i < arrLength + idx; i++) {
+      avg += arr[i].y
+    }
+    console.log({ avg })
+    avg = avg / arrLength
+    newArr.push(avg)
+    idx += 30
+  }
+  console.log({ newArr })
+  return newArr
 }

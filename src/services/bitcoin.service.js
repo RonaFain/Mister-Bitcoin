@@ -1,5 +1,4 @@
 'use strict'
-import { utils } from './utils.service.js'
 import { DbService } from './db-service.js'
 import axios from 'axios'
 
@@ -8,7 +7,6 @@ const KEY = 'bitcoin'
 export default {
   getRate,
   getMarketPrice,
-//   getMarketPrice,
 }
 
 async function getRate(coins) {
