@@ -1,62 +1,41 @@
 <template>
-  <div class="chart">
-    <LineChart :chart-data="chartData" :options="options" />
-  </div>
+  <!-- <line-chart :data="chartData"></line-chart> -->
+  <line-chart :data="editChartData"></line-chart>
 </template>
 
 <script>
-import { utilService } from "../services/utils.service";
-import { LineChart } from "vue-chart-3";
-
-import {
-  Chart,
-  LineController,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-} from "chart.js";
-Chart.register(
-  LineController,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement
-);
 export default {
-  components: {
-    LineChart,
-  },
   props: {
-    chartdata: Array,
+    marketPrice: Array,
+    marketTime: Array
   },
   data() {
     return {
-      labels: ["5 month", "4 month", "3 month", "2 month", "last mont"],
-      datasets: [
-        {
-          label: "Bitcoin",
-          data: utilService.getAvgValues(this.chartdata),
-          backgroundColor: "#fff",
-          borderColor: "rgb(75, 192, 192)",
-          tension: 0.1,
-        },
+      chartData: [
+        ["Jan", 44],
+        ["Feb", 27],
+        ["Mar", 60],
+        ["Apr", 55],
+        ["May", 37],
+        ["Jun", 40],
+        ["Jul", 69],
+        ["Aug", 33],
+        ["Sept", 76],
+        ["Oct", 90],
+        ["Nov", 34],
+        ["Dec", 22],
       ],
-      options: {
-        title: {
-          text: "Bitcoin",
-        },
-      },
     }
   },
   computed: {
-    chartData() {
-      return {
-        labels: this.labels,
-        datasets: this.datasets,
-      }
-    },
-  },
+    editChartData() {
+      return this.marketTime.map((time, idx) => {
+        console.log([new Date(time).toLocaleDateString("en-US") , this.marketPrice[idx]]);
+        return [time , this.marketPrice[idx]]
+      })
+    }
+    
+  }
 };
 </script>
 
